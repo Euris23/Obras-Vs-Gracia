@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Gracia vs Obras</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --gracia-color: #00b4db;
+            --gracia-gold: #ffd700;
+            --obras-color: #f12711;
+            --obras-earth: #f5af19;
+            --text-light: #ffffff;
+            --text-dim: #cccccc;
+        }
+
+        .reveal .slides {
+            font-family: 'Lora', serif;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        /* Title Slide */
+        .title-main {
+            font-size: 4.5rem !important;
+            background: -webkit-linear-gradient(45deg, var(--gracia-color), var(--obras-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px !important;
+        }
+        
+        .title-sub {
+            font-size: 1.8rem !important;
+            color: var(--text-dim) !important;
+            font-style: italic;
+            text-transform: none !important;
+            font-family: 'Lora', serif !important;
+            margin-bottom: 40px !important;
+        }
+
+        .title-icons {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            font-size: 5rem;
+            margin-top: 40px;
+        }
+
+        .title-icons .fa-cross {
+            color: var(--gracia-color);
+            filter: drop-shadow(0 0 15px rgba(0,180,219,0.5));
+        }
+
+        .title-icons .fa-person-walking {
+            color: var(--obras-earth);
+            filter: drop-shadow(0 0 15px rgba(245,175,25,0.5));
+        }
+
+        /* Question Slide */
+        .q-concept {
+            font-size: 3.5rem !important;
+            color: white;
+            letter-spacing: 2px;
+            margin-bottom: 20px !important;
+        }
+
+        .q-question {
+            font-size: 2rem !important;
+            color: #ffdb58; /* Yellow */
+            font-family: 'Montserrat', sans-serif !important;
+            text-transform: none !important;
+            font-weight: 600;
+        }
+
+        .q-icon {
+            font-size: 6rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Answer Gracia */
+        .ans-gracia h2 {
+            color: var(--gracia-gold) !important;
+            font-size: 3.5rem !important;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            margin-bottom: 30px !important;
+        }
+        
+        .ans-gracia .badge {
+            background: linear-gradient(45deg, #0052D4, #00b4db);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 180, 219, 0.3);
+        }
+
+        .ans-gracia .verse-highlight {
+            color: var(--gracia-gold);
+            font-weight: bold;
+        }
+
+        /* Answer Obras */
+        .ans-obras h2 {
+            color: var(--obras-earth) !important;
+            font-size: 3.5rem !important;
+            text-shadow: 0 0 20px rgba(245, 175, 25, 0.3);
+            margin-bottom: 30px !important;
+        }
+        
+        .ans-obras .badge {
+            background: linear-gradient(45deg, #f12711, #f5af19);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(245, 175, 25, 0.3);
+        }
+
+        .ans-obras .verse-highlight {
+            color: var(--obras-earth);
+            font-weight: bold;
+        }
+
+        /* Verses Shared */
+        .verse-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 5px solid rgba(255,255,255,0.3);
+            padding: 40px;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 900px;
+            text-align: left;
+            border-radius: 0 10px 10px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .verse-text {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            margin-bottom: 25px !important;
+        }
+
+        .verse-ref {
+            font-size: 1.4rem;
+            text-align: right;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- PORTADA -->
+            <section data-background-color="#000000" data-background-image="https://images.unsplash.com/photo-1504052434569-70ad5836ab65" data-background-opacity="0.35">
+                <h1 class="title-main">Gracia vs Obras</h1>
+                <h2 class="title-sub">👉 ¿Qué recibimos por gracia y qué recibimos por obras?</h2>
+                <div class="title-icons">
+                    <i class="fa-solid fa-cross"></i>
+                    <i class="fa-solid fa-person-walking"></i>
+                </div>
+            </section>
+
+            <!-- 1. Recompensas eternas -->
+            <section data-background-color="#121212" data-background-image="https://images.unsplash.com/photo-1612865547334-09cb8cb455da" data-background-opacity="0.2">
+                <i class="fa-solid fa-crown q-icon"></i>
+                <h2 class="q-concept">Recompensas eternas</h2>
+                <h3 class="q-question">👉 ¿Esto se recibe por gracia o por obras?</h3>
+            </section>
+            <section class="ans-obras" data-background-color="#4a2000" data-background-image="https://images.unsplash.com/photo-1612865547334-09cb8cb455da" data-background-opacity="0.25">
+                <div class="badge">Se desarrolla por OBRAS</div>
+                <h2>Recompensas eternas</h2>
+                <div class="verse-box">
+                    <p class="verse-text">"He aquí yo vengo pronto, y mi galardón conmigo, para recompensar a cada uno según sea su <span class="verse-highlight">obra</span>."</p>
+                    <p class="verse-ref">— Apocalipsis 22:12</p>
+                </div>
+            </section>
+
+            <!-- 2. Salvación -->
+            <section data-background-color="#121212" data-background-image="https://images.unsplash.com/photo-1587324438673-56c6f4477dc1" data-background-opacity="0.2">
+                <i class="fa-solid fa-life-ring q-icon"></i>
+                <h2 class="q-concept">Salvación</h2>
+                <h3 class="q-question">👉 ¿Esto se recibe por gracia o por obras?</h3>
+            </section>
+            <section class="ans-gracia" data-background-color="#002b5e" data-background-image="https://images.unsplash.com/photo-1587324438673-56c6f4477dc1" data-background-opacity="0.25">
+                <div class="badge">Se recibe por GRACIA</div>
+                <h2>Salvación</h2>
+                <div class="verse-box">
+                    <p class="verse-text">"Porque por <span class="verse-highlight">gracia</span> sois salvos por medio de la fe; y esto no de vosotros, pues es <span class="verse-highlight">don de Dios</span>; no por obras, para que nadie se gloríe."</p>
+                    <p class="verse-ref">— Efesios 2:8-9</p>
+                </div>
+            </section>
+
+            <!-- 3. Madurez espiritual -->
+            <section data-background-color="#121212" data-background-image="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc" data-background-opacity="0.2">
+                <i class="fa-solid fa-seedling q-icon"></i>
+                <h2 class="q-concept">Madurez espiritual</h2>
+                <h3 class="q-question">👉 ¿Esto se recibe por gracia o por obras?</h3>
+            </section>
+            <section class="ans-obras" data-background-color="#4a2000" data-background-image="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc" data-background-opacity="0.25">
+                <div class="badge">Se desarrolla por OBRAS</div>
+                <h2>Madurez espiritual</h2>
+                <div class="verse-box">
+                    <p class="verse-text">"...pero el alimento sólido es para los que han alcanzado madurez, para los que por el uso tienen los sentidos <span class="verse-highlight">ejercitados</span> en el discernimiento del bien y del mal."</p>
+                    <p class="verse-ref">— Hebreos 5:12-14</p>
+                </div>
+            </section>
+
+            <!-- 4. Cercanía a Dios -->
+            <section data-background-color="#121212" data-background-image="https://images.unsplash.com/photo-1507692049790-de58290a4334" data-background-opacity="0.2">
+                <i class="fa-solid fa-hands-praying q-icon"></i>
+                <h2 class="q-concept">Cercanía a Dios</h2>
+                <h3 class="q-question">👉 ¿Esto se recibe por gracia o por obras?</h3>
+            </section>
+            <section class="ans-obras" data-background-color="#4a2000" data-background-image="https://images.unsplash.com/photo-1507692049790-de58290a4334" data-background-opacity="0.25">
+                <div class="badge">Se desarrolla por OBRAS</div>
+                <h2>Cercanía a Dios</h2>
+                <div class="verse-box">
+                    <p class="verse-text">"<span class="verse-highlight">Acercaos</span> a Dios, y él se acercará a vosotros. Pecadores, <span class="verse-highlight">limpiad</span> las manos; y vosotros los de doble ánimo, <span class="verse-highlight">purificad</span> vuestros corazones."</p>
+                    <p class="verse-ref">— Santiago 4:8</p>
+                </div>
+            </section>
+
+            <!-- 5. Espíritu Santo -->
+            <section data-background-color="#121212" data-background-image="https://images.unsplash.com/photo-1550346331-15c0e1ccaeec" data-background-opacity="0.2">
+                <i class="fa-solid fa-dove q-icon"></i>
+                <h2 class="q-concept">Espíritu Santo</h2>
+                <h3 class="q-question">👉 ¿Esto se recibe por gracia o por obras?</h3>
+            </section>
+            <section class="ans-gracia" data-background-color="#002b5e" data-background-image="https://images.unsplash.com/photo-1550346331-15c0e1ccaeec" data-background-opacity="0.25">
+                <div class="badge">Se recibe por GRACIA</div>
+                <h2>Espíritu Santo</h2>
+                <div class="verse-box" style="padding: 25px;">
+                    <p class="verse-text" style="font-size: 1.25rem; line-height: 1.4; margin-bottom: 15px !important;">"¡Oh gálatas insensatos! ¿quién os fascinó para no obedecer a la verdad...? Esto solo quiero saber de vosotros: ¿Recibisteis el Espíritu por las <span style="color:#ff9d00">obras de la ley</span>, o por el <span class="verse-highlight">oír con fe</span>? ¿Tan insensatos sois? ¿Habiendo comenzado por el Espíritu, ahora vais a acabar por la carne? ¿Tantas cosas habéis padecido en vano?... Aquel, pues, que os suministra el Espíritu, y hace maravillas entre vosotros, ¿lo hace por las <span style="color:#ff9d00">obras de la ley</span>, o por el <span class="verse-highlight">oír con fe</span>?"</p>
+                    <p class="verse-ref">— Gálatas 3:1-5</p>
+                </div>
+            </section>
+
+            <!-- 6. Reconciliación con Dios -->
+            <section data-background-color="#121212" data-background-image="https://images.unsplash.com/photo-1490680219602-0cbaee5ef92a" data-background-opacity="0.2">
+                <i class="fa-solid fa-handshake-angle q-icon"></i>
+                <h2 class="q-concept">Reconciliación con Dios</h2>
+                <h3 class="q-question">👉 ¿Esto se recibe por gracia o por obras?</h3>
+            </section>
+            <section class="ans-gracia" data-background-color="#002b5e" data-background-image="https://images.unsplash.com/photo-1490680219602-0cbaee5ef92a" data-background-opacity="0.25">
+                <div class="badge">Se recibe por GRACIA</div>
+                <h2>Reconciliación con Dios</h2>
+                <div class="verse-box">
+                    <p class="verse-text">"Y todo esto proviene de Dios, quien <span class="verse-highlight">nos reconcilió</span> consigo mismo por Cristo... no tomándoles en cuenta a los hombres sus pecados..."</p>
+                    <p class="verse-ref">— 2 Corintios 5:18-19</p>
+                </div>
+            </section>
+
+            <!-- 7. Justificación -->
+            <section data-background-color="#121212" data-background-image="https://images.unsplash.com/photo-1589391886645-d51941baf7fb" data-background-opacity="0.2">
+                <i class="fa-solid fa-scale-balanced q-icon"></i>
+                <h2 class="q-concept">Justificación</h2>
+                <h3 class="q-question">👉 ¿Esto se recibe por gracia o por obras?</h3>
+            </section>
+            <section class="ans-gracia" data-background-color="#002b5e" data-background-image="https://images.unsplash.com/photo-1589391886645-d51941baf7fb" data-background-opacity="0.25">
+                <div class="badge">Se recibe por GRACIA</div>
+                <h2>Justificación</h2>
+                <div class="verse-box">
+                    <p class="verse-text">"<span class="verse-highlight">Justificados, pues, por la fe</span>, tenemos paz para con Dios por medio de nuestro Señor Jesucristo;"</p>
+                    <p class="verse-ref">— Romanos 5:1</p>
+                </div>
+            </section>
+
+            <!-- 8. Dirección de Dios en la vida -->
+            <section data-background-color="#121212" data-background-image="https://images.unsplash.com/photo-1501168128549-bcf82de29281" data-background-opacity="0.2">
+                <i class="fa-solid fa-map-location-dot q-icon"></i>
+                <h2 class="q-concept">Dirección de Dios en la vida</h2>
+                <h3 class="q-question">👉 ¿Esto se recibe por gracia o por obras?</h3>
+            </section>
+            <section class="ans-obras" data-background-color="#4a2000" data-background-image="https://images.unsplash.com/photo-1501168128549-bcf82de29281" data-background-opacity="0.25">
+                <div class="badge">Se desarrolla por OBRAS</div>
+                <h2>Dirección de Dios en la vida</h2>
+                <div class="verse-box">
+                    <p class="verse-text">"<span class="verse-highlight">Fíate</span> de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia. <span class="verse-highlight">Reconócelo</span> en todos tus caminos, y él enderezará tus veredas."</p>
+                    <p class="verse-ref">— Proverbios 3:5-6</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide', 
+            backgroundTransition: 'fade', 
+        });
+    </script>
+</body>
+</html>
